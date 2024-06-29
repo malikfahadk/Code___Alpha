@@ -1,0 +1,29 @@
+#The Fibonacci series is a sequence where each number is
+#the sum of the two preceding numbers, defined by a
+#mathematical recurrence relationship
+def fibonacci(f):
+    fib_series = [0, 1]
+    
+    if f <= 0:
+        return []
+    elif f == 1:
+        return [0]
+    elif f == 2:
+        return fib_series
+    
+    for i in range(2, f):
+        next_fib = fib_series[-1] + fib_series[-2]
+        fib_series.append(next_fib)
+    
+    return fib_series
+while True:
+    try:
+        num_terms = int(input("Enter the number of Fibonacci terms to generate: "))
+        if num_terms < 0:
+            print("Please enter a non-negative integer.")
+        else:
+            break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+fibonacci_series = fibonacci(num_terms)
+print(fibonacci_series)
